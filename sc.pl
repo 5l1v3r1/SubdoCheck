@@ -1,9 +1,6 @@
 #!/usr/bin/perl
 
-# Subdomain Checker tool by N1ght_
-
-
-
+# Subdomain Checker tool by N1ght.Hax0r
 use HTTP::Request;
 use LWP::UserAgent;
 
@@ -19,28 +16,28 @@ SubdoCheck ver 1.0
 ................/.../------------| Contact :
 ............/´¯/'.'/´¯`·¸--------| N1ghtpe0ple@protonmail.com
 ........./'/../.-./..../¨¯\------| ---------------------------
-........('(...´...´. ¯~/'..')----| Visit :
-.........\...........'...../-----| N1ghtsystem.wordpress.com
+........('(...´...´. ¯~/'..')----| Facebook :
+.........\...........'...../-----| Putra AR (id = N1ghtpe0ple)
 ..........\...\........_.·´------| ---------------------------
 ...........\...........(---------|||||||||||||||||||||||||||||
 ............\...........\--------|
 ..........................-------|
---| Author : N1ght_   |----------|   GOOD LUCK :)  <----------
---| LETS DO IT!!      |----------|
+--| Author : N1ght.Hax0r   |-----|   GOOD LUCK :)  <----------
+--| LETS DO IT!!           |-----|
 };
 sleep(1);
 
-print "Input your Target (without http://) -->";
+print "[?]==// Input your Target >> ";
 $host = <>;
 chomp($host);
-print "Listing...";
+print "[*]==// Listing...";
 $a = "http://www.ewhois.com/".$host."\/";
 $b = LWP::UserAgent->new();
 $c = $b->request(HTTP::Request->new(GET=>$a));
 $d = $c->content;
 if($d =~ m/<span id=\"ip_display\">(.*?)<\/span>/) {
 
-  print "\n [+] Host IP : $1 \n";
+  print "\n [+]==// Host IP : $1 \n";
 }
 
 $e = LWP::UserAgent->new();
@@ -51,12 +48,12 @@ $e = LWP::UserAgent->new();
 
 while($h =~ m/<td><a href=\"\/domain\/(.*?).html\">/g ) {
 
-  print "\n     [*]Sub Domain: $1\n";
+  print "\n     [+]==// Sub Domain: $1\n";
   sleep(1);
   open(a, ">>SubDo.txt");
 print a "http://$1\n";
 close(a);
 
 }
-print "\n\nResult in SubDo.txt\n";
+print "\n\n[!]==// Result in SubDo.txt\n";
 sleep(1);
