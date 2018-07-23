@@ -1,6 +1,8 @@
 #!/usr/bin/perl
 
 # Subdomain Checker tool by N1ght.Hax0r
+# Gausah pake recode recode segala ya kontol
+
 use HTTP::Request;
 use LWP::UserAgent;
 
@@ -8,36 +10,27 @@ use LWP::UserAgent;
 system("clear");
 
 print q{
-SubdoCheck ver 1.0
-
-...................--------------| Github :
-................../´¯/)----------| https://github.com/N1ght420
-................,/¯../-----------| --------------------------
-................/.../------------| Contact :
-............/´¯/'.'/´¯`·¸--------| N1ghtpe0ple@protonmail.com
-........./'/../.-./..../¨¯\------| ---------------------------
-........('(...´...´. ¯~/'..')----| Facebook :
-.........\...........'...../-----| Putra AR (id = N1ghtpe0ple)
-..........\...\........_.·´------| ---------------------------
-...........\...........(---------|||||||||||||||||||||||||||||
-............\...........\--------|
-..........................-------|
---| Author : N1ght.Hax0r   |-----|   GOOD LUCK :)  <----------
---| LETS DO IT!!           |-----|
+[*]=============================[*]
+[*]==//  Subdomain Checker  //==[*]
+[*]==//       Ver.2.0       //==[*]
+[*]=============================[*]
+[*]==//  By >> N1ght.Hax0r  //==[*]
+[*]==//  FB >> Putra AR     //==[*]
+[*]=============================[*]
 };
 sleep(1);
 
-print "[?]==// Input your Target >> ";
+print "\n[?]==// Input your Target >> ";
 $host = <>;
 chomp($host);
-print "[*]==// Listing...";
+print "[*]==// Listing...\n";
 $a = "http://www.ewhois.com/".$host."\/";
 $b = LWP::UserAgent->new();
 $c = $b->request(HTTP::Request->new(GET=>$a));
 $d = $c->content;
 if($d =~ m/<span id=\"ip_display\">(.*?)<\/span>/) {
 
-  print "\n [+]==// Host IP : $1 \n";
+  print "[+]==// Host IP : $1 \n";
 }
 
 $e = LWP::UserAgent->new();
@@ -48,7 +41,7 @@ $e = LWP::UserAgent->new();
 
 while($h =~ m/<td><a href=\"\/domain\/(.*?).html\">/g ) {
 
-  print "\n     [+]==// Sub Domain: $1\n";
+  print "[+]==// Sub Domain: $1\n";
   sleep(1);
   open(a, ">>SubDo.txt");
 print a "http://$1\n";
