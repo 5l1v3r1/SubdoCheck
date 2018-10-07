@@ -5,32 +5,33 @@
 
 use HTTP::Request;
 use LWP::UserAgent;
-
+use Term::ANSIColor qw(:constants);
 
 system("clear");
 
-print q{
-[*]=============================[*]
-[*]==//  Subdomain Checker  //==[*]
-[*]==//       Ver.2.0       //==[*]
-[*]=============================[*]
-[*]==//  By >> N1ght.Hax0r  //==[*]
-[*]==//  FB >> Putra AR     //==[*]
-[*]=============================[*]
-};
+print '
+'.BOLD CYAN.'  _____     _   _____                         '.RESET.'
+'.BOLD CYAN.' |   __|_ _| |_|   __|___ ___ ___ ___ ___ ___ '.RESET.'
+'.BOLD CYAN.' |__   | | | . |__   |  _| .\'|   |   | -_|  _|'.RESET.'
+'.BOLD CYAN.' |_____|___|___|_____|___|__,|_|_|_|_|___|_|  '.RESET.'
+
+'.BOLD WHITE.' ========================['.BOLD YELLOW.' Ver.2.5 '.BOLD WHITE.']==========='.RESET.'
+
+';
 sleep(1);
 
-print "\n[?]==// Input your Target >> ";
+print ''.BOLD GREEN.' Target (Without http://)'.BOLD RED.' > '.BOLD WHITE.'';
 $host = <>;
 chomp($host);
-print "[*]==// Listing...\n";
+print ''.BOLD YELLOW.' Listing... '.BOLD WHITE.'';
+print "\n\n";
 $a = "http://www.ewhois.com/".$host."\/";
 $b = LWP::UserAgent->new();
 $c = $b->request(HTTP::Request->new(GET=>$a));
 $d = $c->content;
 if($d =~ m/<span id=\"ip_display\">(.*?)<\/span>/) {
 
-  print "[+]==// Host IP : $1 \n";
+  print " Host IP : $1 \n";
 }
 
 $e = LWP::UserAgent->new();
@@ -41,12 +42,12 @@ $e = LWP::UserAgent->new();
 
 while($h =~ m/<td><a href=\"\/domain\/(.*?).html\">/g ) {
 
-  print "[+]==// Sub Domain: $1\n";
+  print " Sub Domain : $1\n";
   sleep(1);
-  open(a, ">>SubDo.txt");
+  open(a, ">>$host.txt");
 print a "http://$1\n";
 close(a);
 
 }
-print "\n\n[!]==// Result in SubDo.txt\n";
+print "\n\n Result reported to $host.txt\n";
 sleep(1);
